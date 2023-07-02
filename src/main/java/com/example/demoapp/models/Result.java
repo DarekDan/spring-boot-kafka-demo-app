@@ -6,10 +6,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class Result<T> {
 
-    @JsonInclude(value=Include.NON_EMPTY, content= Include.NON_NULL)
+    @JsonInclude(value = Include.NON_EMPTY, content = Include.NON_NULL)
     private final T value;
 
-    @JsonInclude(value=Include.NON_EMPTY, content=Include.NON_NULL)
+    @JsonInclude(value = Include.NON_EMPTY, content = Include.NON_NULL)
     private final Throwable error;
 
     @JsonCreator

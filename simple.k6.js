@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { check } from 'k6';
+import {check} from 'k6';
 
 export default function () {
     // Create an instance of the Mail class with sample data
@@ -21,7 +21,8 @@ export default function () {
     };
 
     // Make a POST request to the server with the serialized JSON data
-    const response = http.post('http://localhost:9094/api/v1/mailing', jsonData, { headers });
+    const response = http.post('http://localhost:9094/api/v1/mailing', jsonData,
+        {headers});
 
     // Check if the request was successful
     check(response, {

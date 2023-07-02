@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class KafkaTopicListener {
+
     @KafkaListener(topics = {"packaging_mailing_topic"}, groupId = "mail-group")
     public void handleSendingEmail(Mail mail) {
         log.info("Preparing to send shipping info to this email [{}]", mail.getEmail());

@@ -4,19 +4,22 @@ This code sample has been written as an exercise for techniques described in
 [Building Your First Event-Driven Application with Spring Boot and Apache Kafka](https://medium.com/cloud-native-daily/building-your-first-event-driven-application-with-spring-boot-and-apache-kafka-13c7adc8159b)
 
 It is left to the reader to properly split the solution into:
+
 * Models module (shared by the other two)
 * Producer module
 * Consumer module
 
 ## K6
 
-The code also includes sample k6 script. To execute for 100,000 iterations across 100 virtual 
+The code also includes sample k6 script. To execute for 100,000 iterations across 100 virtual
 sessions use:
+
 ```shell
 k6 run --iterations 100000 --vus 100  .\simple.k6.js
 ```
 
 On a laptop with AMD Ryzen 9 7945HX (with ESET antivirus going nuts scanning):
+
 ```text
 
           /\      |‾‾| /‾‾/   /‾‾/

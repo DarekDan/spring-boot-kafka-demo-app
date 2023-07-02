@@ -1,18 +1,18 @@
 <configuration>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="CONSOLE">
+        <bufferSize>262144</bufferSize>
+        <bufferedIO>true</bufferedIO>
         <encoder>
             <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
         <target>System.out</target>
-        <bufferedIO>true</bufferedIO>
-        <bufferSize>262144</bufferSize>
     </appender>
 
-    <logger name="org.apache" level="WARN"/>
-    <logger name="org.springframework" level="WARN"/>
+    <logger level="WARN" name="org.apache"/>
+    <logger level="WARN" name="org.springframework"/>
 
     <root level="INFO">
-        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="CONSOLE"/>
     </root>
 
 </configuration>
