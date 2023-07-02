@@ -1,6 +1,7 @@
 package com.example.demoapp.services;
 
 import com.example.demoapp.models.Mail;
+import com.example.demoapp.models.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,15 +18,16 @@ public class MailingService {
     @Value("${kafka.topic.mailing_topic}")
     private String mailingTopic;
 
-    public void sendMail(Mail mail) {
+    public Result<Boolean> sendMail(Mail mail) {
         var future = kafkaProducer.send(mailingTopic, mail);
         future.whenComplete((sendResult, exception) -> {
+            log.info("{}", sendResult);
             if (exception != null) {
                 future.completeExceptionally(exception);
             } else {
                 future.complete(sendResult);
             }
-            log.info("{}", sendResult);
         });
+        return future.isCompletedExceptionally() ? Result.error(future.exceptionNow()) : Result.success(true);
     }
 }
