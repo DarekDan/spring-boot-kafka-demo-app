@@ -9,7 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Value("kafka.topic.mailing_topic")
+    @Value("${kafka.topic.mailing_topic}")
     private String mailingTopic;
 
 
