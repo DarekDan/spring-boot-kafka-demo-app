@@ -62,7 +62,7 @@ running (00m19.9s), 000/100 VUs, 100000 complete and 0 interrupted iterations
 default ✓ [======================================] 100 VUs  00m19.9s/10m0s  100000/100000 shared iters
 ```
 
-After excluding webscan of 127.0.0.1 in ESET, performance was _slightly_ improved. YOu be the judge.
+After excluding webscan of 127.0.0.1 in ESET, performance was _slightly_ improved. You be the judge.
 
 ```text
 
