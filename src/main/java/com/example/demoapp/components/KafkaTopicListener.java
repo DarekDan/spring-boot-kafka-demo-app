@@ -11,8 +11,6 @@ public class KafkaTopicListener {
 
     @KafkaListener(topics = {"${kafka.topic.mailing_topic}"}, groupId = "mail-group")
     public void handleSendingEmail(Mail mail) {
-        log.info("Preparing to send shipping info to this email [{}]", mail.getEmail());
-        log.info("Shipping Information");
-        log.info("{}", mail);
+        log.info("Preparing to send shipping info to this email [{}] >>> {}", mail.getEmail(), mail);
     }
 }
