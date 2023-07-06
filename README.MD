@@ -61,3 +61,46 @@ On a laptop with AMD Ryzen 9 7945HX (with ESET antivirus going nuts scanning):
 running (00m19.9s), 000/100 VUs, 100000 complete and 0 interrupted iterations
 default ✓ [======================================] 100 VUs  00m19.9s/10m0s  100000/100000 shared iters
 ```
+
+After excluding webscan of 127.0.0.1 in ESET, performance was _slightly_ improved. YOu be the judge.
+
+```text
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: .\simple.k6.js
+     output: -
+
+
+     ✓ Status is 200
+
+     ✓ Status is 200
+     ✓ Success
+
+     checks.........................: 100.00% ✓ 200000       ✗ 0
+     data_received..................: 10 MB   4.6 MB/s
+     data_sent......................: 28 MB   13 MB/s
+     http_req_blocked...............: avg=7.27µs   min=0s med=0s    max=20.36ms p(90)=0s     p(95)=0s
+     http_req_connecting............: avg=776ns    min=0s med=0s    max=6.51ms  p(90)=0s     p(95)=0s
+     http_req_duration..............: avg=1.55ms   min=0s med=1ms   max=59.77ms p(90)=3ms    p(95)=4.29ms
+       { expected_response:true }...: avg=1.55ms   min=0s med=1ms   max=59.77ms p(90)=3ms    p(95)=4.29ms
+     http_req_failed................: 0.00%   ✓ 0            ✗ 100000
+     http_req_receiving.............: avg=119.98µs min=0s med=0s    max=48.65ms p(90)=0s     p(95)=623.9µs
+     http_req_sending...............: avg=34.01µs  min=0s med=0s    max=27.14ms p(90)=0s     p(95)=0s
+     http_req_tls_handshaking.......: avg=0s       min=0s med=0s    max=0s      p(90)=0s     p(95)=0s
+     http_req_waiting...............: avg=1.4ms    min=0s med=1ms   max=53.12ms p(90)=2.95ms p(95)=3.99ms
+     http_reqs......................: 100000  46009.275102/s
+     iteration_duration.............: avg=2.13ms   min=0s med=1.2ms max=63.65ms p(90)=4.32ms p(95)=6.71ms
+     iterations.....................: 100000  46009.275102/s
+     vus............................: 100     min=100        max=100
+     vus_max........................: 100     min=100        max=100
+
+
+running (00m02.2s), 000/100 VUs, 100000 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  00m02.2s/10m0s  100000/100000 shared iters
+```
