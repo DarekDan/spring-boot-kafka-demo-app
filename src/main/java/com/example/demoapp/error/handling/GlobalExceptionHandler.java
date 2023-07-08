@@ -1,15 +1,12 @@
-package com.example.demoapp.errorHandling;
+package com.example.demoapp.error.handling;
 
 import java.net.URI;
 import java.util.List;
-
-import com.example.demoapp.exceptions.AccountProcessingException;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.reactive.result.method.annotation.ResponseEntityExceptionHandler;
 
 @RestControllerAdvice
 @Order(-2)
