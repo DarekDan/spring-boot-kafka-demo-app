@@ -24,6 +24,6 @@ public class AccountService {
     }
 
     public Mono<Result<String>> createAccount(AccountDto accountDto) throws AccountProcessingException {
-        return Mono.just(Result.error(new AccountProcessingException("Function not yet implemented")));
+        throw (new AccountProcessingException("Function not yet implemented"));
     }
 }
