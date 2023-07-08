@@ -9,7 +9,7 @@
     </appender>
 
     <logger level="WARN" name="org.apache"/>
-    <logger level="WARN" name="org.springframework"/>
+    <logger level="INFO" name="org.springframework"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
