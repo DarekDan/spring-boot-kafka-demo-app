@@ -1,6 +1,7 @@
 package com.example.demoapp.controllers;
 
 import com.example.demoapp.dto.AccountDto;
+import com.example.demoapp.entities.Account;
 import com.example.demoapp.exceptions.AccountProcessingException;
 import com.example.demoapp.services.AccountService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +22,8 @@ public class AccountController {
 
 
   @PostMapping("createAccount")
-  public Mono<Void> createAccount(@RequestBody Mono<AccountDto> accountDto) {
-    return accountDto.flatMap(a -> Mono.just(accountService.createAccount(a)).then())
+  public Mono<Account> createAccount(@RequestBody Mono<AccountDto> accountDto) {
+    return accountDto.flatMap(a -> Mono.just(accountService.createAccount(a)))
         .switchIfEmpty(Mono.error(new AccountProcessingException("Create unsuccessful")));
   }
 }

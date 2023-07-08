@@ -3,6 +3,7 @@ package com.example.demoapp.services;
 import com.example.demoapp.dto.AccountDto;
 import com.example.demoapp.entities.Account;
 import com.example.demoapp.exceptions.AccountProcessingException;
+import com.example.demoapp.mappers.AccountMapper;
 import com.example.demoapp.repositories.AccountRepository;
 import java.util.Objects;
 import java.util.Optional;
@@ -25,6 +26,6 @@ public class AccountService {
     if (!Objects.isNull(accountDto.getId())) {
       throw new AccountProcessingException("New account request must not have an ID");
     }
-    return accountRepository.save(new Account(accountDto.getName()));
+    return accountRepository.save(AccountMapper.INSTANCE.accountDtoToAccount(accountDto));
   }
 }
